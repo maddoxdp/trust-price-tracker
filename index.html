@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$TRUST Price Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>$TRUST Price Tracker</h1>
+
+    <div class="price-card">
+      <div class="header">
+        <img id="logo" src="" alt="$TRUST logo" />
+        <h2 id="name">Loading...</h2>
+      </div>
+
+      <div class="price">$<span id="price">--</span></div>
+
+      <div class="changes">
+        <div class="change">
+          <span>1h</span>
+          <span id="change1h" class="--">--</span>
+        </div>
+        <div class="change">
+          <span>24h</span>
+          <span id="change24h" class="--">--</span>
+        </div>
+        <div class="change">
+          <span>7d</span>
+          <span id="change7d" class="--">--</span>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div>Market Cap: <strong id="marketCap">--</strong></div>
+        <div>24h Volume: <strong id="volume">--</strong></div>
+        <div>Circulating Supply: <strong id="supply">--</strong></div>
+      </div>
+
+      <div class="last-updated">Last updated: <span id="updated">--</span></div>
+    </div>
+
+    <button onclick="refreshPrice()">Refresh Now</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
