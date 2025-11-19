@@ -10,14 +10,21 @@ async function fetchPrice() {
     const response = await fetch(
       `https://api.coingecko.com/api/v3/coins/${COINGECKO_ID}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
     );
+    if (!response.ok) {
+      throw new Error(`CoinGecko API returned status ${response.status}`);
+    }
     const data = await response.json();
+
+    if (!data.market_data || !data.market_data.current_price || !data.market_data.current_price.usd) {
+      throw new Error("Token data not found (check COINGECKO_ID)");
+    }
 
     document.getElementById("name").textContent = data.name + " (" + data.symbol.toUpperCase() + ")";
     document.getElementById("price").textContent = data.market_data.current_price.usd.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 6});
     
     document.getElementById("logo").src = data.image.large;
 
-    const p = data.market_data.price_change_percentage;
+    const p = data.market_data.price_change_percentage || {};
     setChange("change1h", p["1h"]);
     setChange("change24h", p["24h"]);
     setChange("change7d", p["7d"]);
@@ -30,6 +37,7 @@ async function fetchPrice() {
   } catch (err) {
     console.error(err);
     document.getElementById("price").textContent = "Error loading data";
+    document.getElementById("name").textContent = err.message;
   }
 }
 
