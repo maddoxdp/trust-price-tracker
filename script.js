@@ -8,7 +8,7 @@ const COINGECKO_ID = "intuition";   // ← CHANGE THIS IF NEEDED
 async function fetchPrice() {
   try {
     const response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${COINGECKO_ID}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
+      `https://api.coingecko.com/api/v3/coins/${intuition}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
     );
     const data = await response.json();
 
