@@ -3,7 +3,7 @@
 // TrueUSD                 → "trueusd"
 // Trust Wallet Token (TWT) → "trust-wallet-token"
 // If your token isn't listed yet, see alternative options below.
-const COINGECKO_ID = "neo-tokyo";   // ← CHANGE THIS IF NEEDED
+const COINGECKO_ID = "intuition";   // ← CHANGE THIS IF NEEDED
 
 async function fetchPrice() {
   try {
